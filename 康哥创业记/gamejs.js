@@ -13,6 +13,7 @@
             var control_2 = 0;
             var control_3 = 0;
             var control_4 = 0;
+            var control_5 = 0;
             alert("康哥，欢迎开始你的创业生活，期待你的成功！");
             alert("在游戏的开始你可以先探索八大模块的功能，不过对于刚开始创业你来说，先赚取一定的本金才是王道\n不过还要兼顾自己的健康，疲劳程度哦");
 
@@ -135,7 +136,7 @@
 						this.guilty +=3;
 						alert("やめなさい！お客様！\n财富-100\n心情+10\n时髦+20\n罪恶值+5");
 					}
-					},
+				},
 
 				getMoney: function(wayToGetMoney){
 					if(kang.spirit<10){alert("没心情，没意思，打工是不可能打工的");}
@@ -172,8 +173,8 @@
 						this.spirit += 10;
 						this.wealth += 2000;
 						alert("怪，怪不好意思的。。。\n罪恶值+10\n心情+10\n疲劳值+10\n财富+2000");
-                        }
-                        if (wayToGetMoney == "拉赞助") {
+                    }
+                    if (wayToGetMoney == "拉赞助") {
                             if (kang.numOfBussiness > 0) {
 
                                 this.fatigue += 5;
@@ -185,12 +186,12 @@
                             else
                                 alert("你连自己的公司都没有你来拉什么赞助，你以为你在上星光大道吗？");
 
-                        }
+                    }
 
-				}
-			}
+				    }
+			    }
 				
-				}
+			}
 
 
 ///编写创建公司相关函数
@@ -222,20 +223,20 @@
 					    kang.sum += this.input;
 						}
 
-					    else if((kang.numOfBussiness > 0)&&(kang.ability.certificate)){
+					   else if((kang.numOfBussiness > 0)&&(kang.ability.certificate)){
 					    alert("恭喜，新的子公司——康哥洗脚按摩桑拿舞会服务股份有限公司——已经可以运作了");
 					    kang.numOfBussiness ++;
 						kang.stock += 40;
 					    kang.business.push(this);
 					    kang.wealth -= this.startmoney;
 					    kang.sum += this.input;
-					    }
+					   }
 
-					    else{
+					   else{
 					    	 alert("缺乏建筑技术，导致公司新门面装修时出现塌方，人员伤亡惨重，本人也被深埋废墟，奄奄一息\n财富值-2000，健康值=15");
 					    	 kang.wealth -=2000;
 					    	 kang.health = 15;
-					    }
+					        }
 					}
 				}
 			}
@@ -656,28 +657,28 @@
            
             time++;
 			    ///三次操作后进入下一天
-            if (time == 4)
-            {
+            if (time == 4){
                 time = 1; relativetime++;
                 alert("匆匆忙忙一天就过去了，创业之路一定是艰辛的，睡个好觉吧，晚安！(～￣▽￣)～");
                 alert("早上起来打开窗，心情美美哒，新的一天加油哦！ヾ(◍°∇°◍)ﾉﾞ");
             }
 			    ///根据现有属性值给出下一操作的提示
-            if (kang.health >= 1 && kang.wealth > 5000 && control_1 == 0) {
+            if (kang.health >= 1 && kang.wealth > 5000 && control_1 == 0){
                 alert("赚取了这么多钱已经很了不起了，不过或许你可以再加把油赚更多的钱来创建自己的公司"); control_1 = 1;
             }
-            if (kang.health >= 1 && kang.wealth >= 10000 && control_2 == 0) {
+            if (kang.health >= 1 && kang.wealth >= 10000 && control_2 == 0){
                 alert("马化腾☺：阿云啊，你那个新搞的阿里云怎么样了？我最近正准备开一个新公司搞点外快，现在英雄联盟没人买皮肤了\n马云☺：啊，你说那个啊，马兄啊，那玩意贼赚钱");
                 alert("你转身一看是马化腾，你刚想上去让他把你的皮肤钱给退了，他们就推开你走进了马路对面的五星级酒店\n你很生气但又无奈，你下定决心开一家自己的公司，有一天与他们谈笑风生！"); control_2 = 1;
                 alert("系统提示：\n你现在已经可以创建自己的公司了，快去试试吧！");
             }
-            if (kang.employee.length == 1) {
-                alert("你：实不相瞒，这公司就是你我两个人\n新人：黑人问号脸.jpg 那我是二号员工？？？\n你：理论上是的\n新人：康总我看你有马化腾的命！"); alert("系统提示：\n现在你已经有了自己的员工，根据员工的技能开发新的技术吧！");
+            if (kang.employee.length == 1&&control_5==0){
+                alert("你：实不相瞒，这公司就是你我两个人\n新人：黑人问号脸.jpg 那我是二号员工？？？\n你：理论上是的\n新人：康总我看你有马化腾的命！");
+                alert("系统提示：\n现在你已经有了自己的员工，根据员工的技能开发新的技术吧！");
+                control_5 = 1;
             }
             if (kang.wealth >= 100000 && kang.ability.internet) alert("流氓：康总，听说最近王欣大哥出来了，他是我的偶像，要不我们拉他入伙？\n你：？？？还是算了吧，我们公司不做播放器\n流氓：。。。。");
-            if (kang.wealth > 300000 && kang.ability.economic) {
+            if (kang.wealth > 300000 && kang.ability.economic){
                 alert("好鳖：康总您看，我们的公司也小有规模了，资金也充足了，再说我自从来了咋们公司一直管公司分发，我这金融本领也没地方用啊，不如你就拨点资金我去玩玩股票？\n你：这个。。鳖啊也确实太屈才了，那你就拿这10万练练？"); alert("好鳖：老板一个好消息一个坏。。\n你：收声！");
-
             }
 			    ///在游戏中显示游戏时间
             var timeboard = document.getElementsByClassName("real")[0];
@@ -703,7 +704,9 @@
         			kang.spirit+=5;
         		}
 
-        		if(kang.tech.drug) {alert("由于你贩卖毒品，神人共愤，罪恶值翻倍！"); kang.guilty*=2;}
+                    if (kang.tech.drug) {
+                        alert("由于你贩卖毒品，神人共愤，罪恶值翻倍！"); kang.guilty *= 2;
+                    }
         		if(!kang.ability.beauty) {
         			alert("长期工作，人心涣散，员工忠诚度普遍下降了3点") ;
         			for (var i = kang.employee.length - 1; i >= 0; i--) {
@@ -736,21 +739,18 @@
         				alert("今晚的新闻联播主题是——毒枭李某康反抗缉毒警察，被当场击毙，其手下的几名员工也被逮捕，对于李某康的罪行供认不讳");
         				alert("华中大校园之声：昔日校友好才俊，今日毒枭李某康，诸位同学戒之！戒之！");
                         alert("game_____over");reload(false);
-        		}}
+                    }
+                }
 
         	}
         	}
-            
-		  	property[0].innerText = kang.name;
-		  	property[1].innerText = kang.label;
-		  	property[2].innerText = kang.wealth;
-
 			    ///限定健康值上限并判断是否达到游戏结束条件
 		  	if(kang.health > 100) kang.health = 100;
 		  	else if(kang.health < 1) {
 		  		alert("康哥创业未半，而中道崩崒\n-------game over-------");
-		  		reload(false);}
-		  	property[3].innerText = kang.health;
+                    reload(false);
+            }
+		  	
 
 			    ///限定心情值上限，并在过低时给出提醒
 		  	if(kang.spirit > 100) kang.spirit = 100;
@@ -758,14 +758,14 @@
 		  		alert("神他么的烦，工作是不可能工作的～\n");
 		  		able = false; 
 		  	}
-		  	property[4].innerText = kang.spirit;
+		  	
 
 			    ///限定时髦值上限
 		  	if(kang.fashion > 100) kang.fashion = 100;
 		  	else if(kang.fashion < 1) {
 		  		kang.fashion = 0;
 		  	}
-		  	property[5].innerText = kang.fashion;
+		  	
 
 			    ///限定疲劳值上限并判断是否达到游戏结束条件
 		  	if(kang.fatigue < 1) {
@@ -805,25 +805,32 @@
 
 		  	if(kang.guilty < 10) {
 		  	   kang.antiLawLevel = 0;
-            }
-         
-           
+                }
+             ///显示属性值
+            property[0].innerText = kang.name;
+            property[1].innerText = kang.label;
+            property[2].innerText = kang.wealth;
+            property[3].innerText = kang.health;
+            property[4].innerText = kang.spirit;
+            property[5].innerText = kang.fashion;
+            property[6].innerText = kang.fatigue;
 		  	property[7].innerText = kang.guilty;
 		  	property[8].innerText = kang.numOfBussiness;
             property[9].innerText = kang.stock;
           
 			    ///显示已雇佣名单
-		  	for (var i = kang.employee.length - 1; i > 0 ; i--) {
-		  	property[10 + i].innerText = kang.employee[i].name;
-		  	}
+		  	for (var i = kang.employee.length - 1; i >= 0 ; i--) {
+		  	        property[10 + i].innerText = kang.employee[i].name;
+            }
+                ///洗白后开始游戏结束倒计时
             if (kang.justice > 0) {
                 finaltime--;
-                
-                ///洗白后开始游戏结束倒计时
-                if (kang.justice == 1) { alert("这是你第一次为公司洗白，同时又陷入深深的沉思，现在公司已经在一条道上走到黑了，现在还可以洗白以后做大了可怎么办啊，或许我刚开始做业务的时候就应该谨慎一点的。。不过看着自己公司的记录从电脑里面清除，你又松了一口气，走着看吧"); alert("系统提示：或许你可以多洗白几次，有惊喜哟！"); }
+                if (kang.justice == 1) {
+                    alert("这是你第一次为公司洗白，同时又陷入深深的沉思，现在公司已经在一条道上走到黑了，现在还可以洗白以后做大了可怎么办啊，或许我刚开始做业务的时候就应该谨慎一点的。。不过看着自己公司的记录从电脑里面清除，你又松了一口气，走着看吧"); alert("系统提示：或许你可以多洗白几次，有惊喜哟！");
+                }
             }
 			    ///倒计时结束后根据属性值判断游戏结局
-        if(finaltime <= 0){
+            if(finaltime <= 0){
         	if(kang.wealth > 1050000) alert("恭喜康哥现代科技金融一体化发展股份有限公司董事长李睿康获得‘首席富豪企业家’称号！");
         	else{alert("恭喜华中控股公司董事长zz获得‘首席富豪企业家’称号！");}
         	if(kang.guilty > 95) alert("恭喜康哥现代科技金融一体化发展股份有限公司董事长李睿康获得‘首席恶棍企业家’称号！");
@@ -835,30 +842,28 @@
 			if(kang.wealth < 1000) alert("刚才的你敢信？有没有钱心里没点x数吗？");
         	alert("game_____over");
         	reload(false);
-        }
-		}
+            }
+		    }
 
 
-		var screen = document.getElementsByClassName("screen")[0];
-		var menubox = document.getElementsByClassName("menubox")[0];
-		var showbox = document.getElementsByClassName("showbox")[0];
-		var property = screen.children;
-		Refresh(property);
-        var div1 = document.getElementById("div1");
-        var div2 = document.getElementById("div2");
-        var div3 = document.getElementById("div3");
-        var div4 = document.getElementById("div4");
-        var div5 = document.getElementById("div5");
-        var div6 = document.getElementById("div6");
-        var div7 = document.getElementById("div7");
-        var div8 = document.getElementById("div8");
-        var div9 = document.getElementById("div9");
+		    var screen = document.getElementsByClassName("screen")[0];
+		    var menubox = document.getElementsByClassName("menubox")[0];
+		    var showbox = document.getElementsByClassName("showbox")[0];
+		    var property = screen.children;
+		    Refresh(property);
+            var div1 = document.getElementById("div1");
+            var div2 = document.getElementById("div2");
+            var div3 = document.getElementById("div3");
+            var div4 = document.getElementById("div4");
+            var div5 = document.getElementById("div5");
+            var div6 = document.getElementById("div6");
+            var div7 = document.getElementById("div7");
+            var div8 = document.getElementById("div8");
+            var div9 = document.getElementById("div9");
   
 
 ///点击按钮“人才中心”触发事件
-    div1.addEventListener('mousedown',
-        function Menu()
-        {
+           div1.addEventListener('mousedown',function Menu(){
             ///根据页面层数与点击次数判断目录的开关
         if((!(mousecounter%2))&&(flag==0)){
 	    var menu = document.createElement('menu');
@@ -919,7 +924,7 @@
 		  	 showbox.removeChild(finder);
 		  	 excounter++;
 		  	 flag = 1;
-		  	  }
+		  	 }
 		}
 
             ///判断各个员工状态，显示未雇佣员工
@@ -1037,12 +1042,10 @@
 		  	var seeker2 = document.getElementsByTagName("menu")[0];
 		  	menubox.removeChild(seeker2);
 		  } //招募人才
-}
-, false);                                     
+},false);                                     
             
 ///点击按钮“会所”触发事件
-div2.addEventListener('mousedown',
- function Menu(){
+           div2.addEventListener('mousedown',function Menu(){
  function Getitem2(item,name){
 		  	menu.appendChild(item);
 		  	item.innerText = name;
@@ -1155,13 +1158,11 @@ else if (mousecounter%2 && flag == 1){
 		 menubox.removeChild(search);
 		 mousecounter++;
 		 flag = 0;}
-}
-    ,false);
+},false);
 
 
 ///点击按钮“创业基地”触发事件
-div3.addEventListener('mousedown',    //chu a
-    function Menu(){
+          div3.addEventListener('mousedown',function Menu(){
 if( (!(mousecounter%2)) && (flag==0) ){
   var menu = document.createElement('menu');
     menubox.appendChild(menu);
@@ -1222,7 +1223,7 @@ else if(mousecounter%2 && flag == 1){
 
 
 ///点击按钮“黑市”触发事件
-div4.addEventListener('mousedown',function Menu(){
+          div4.addEventListener('mousedown',function Menu(){
  function Getitem4(item,name){
 		  	menu.appendChild(item);
 		  	item.innerText = name;
@@ -1299,7 +1300,7 @@ else if ( (mousecounter%2)  && (flag == 1)){
 
 
 ///点击按钮“警察局”触发事件
-div5.addEventListener('mousedown',function Menu(){
+          div5.addEventListener('mousedown',function Menu(){
  function Getitem5(item,name){
 		  	menu.appendChild(item);
 		  	item.innerText = name;
@@ -1376,13 +1377,11 @@ else if ((mousecounter%2)  && (flag == 1)){
 		 menubox.removeChild(search);
 		 mousecounter++;
 		 flag = 0;}
-		}
-,false);
+		},false);
 
 
 ///点击按钮“劳务市场”触发事件
-div6.addEventListener('mousedown',
- function Menu(){
+          div6.addEventListener('mousedown',function Menu(){
  function Getitem6(item,name){
 		  	menu.appendChild(item);
 		  	item.innerText = name;
@@ -1451,12 +1450,10 @@ else if (mousecounter%2 && flag == 1){
 		 menubox.removeChild(search);
 		 mousecounter++;
 		 flag = 0;}
-}
-    ,false);
+},false);
 
 ///点击按钮“基佬之家”触发事件
-div7.addEventListener('mousedown',
- function Menu(){
+          div7.addEventListener('mousedown',function Menu(){
  function Getitem7(item,name){
 		  	menu.appendChild(item);
 		  	item.innerText = name;
@@ -1521,8 +1518,7 @@ else if (mousecounter%2 && flag == 1){
 
 
 ///点击按钮“科技研发部门”触发事件
-div8.addEventListener('mousedown',
- function Menu(){
+          div8.addEventListener('mousedown',function Menu(){
  function Getitem8(item,name){
 		  	menu.appendChild(item);
 		  	item.innerText = name;
@@ -1555,7 +1551,6 @@ if( (!(mousecounter%2)) && (flag==0) ){
                 alert("每周健康值-5，每周收入翻倍");
                 Refresh(property);
             }
-
 
             if (!kang.ability.doctor) {
                 alert("或许你需要一个医药人才");
@@ -1701,5 +1696,4 @@ else if (mousecounter%2 && flag == 1){
 	mousecounter++;
 	flag = 0;}
  
-}
-,false);
+},false);
